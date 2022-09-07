@@ -1,11 +1,19 @@
 {
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:steel_ingots"
+      ]
+    }
+  ],
   "type": "create:item_application",
   "ingredients": [
     {
       "item": "create:framed_glass"
     },
     {
-      "item": "alloyed:steel_ingot"
+      "tag": "c:steel_ingots"
     }
   ],
   "results": [

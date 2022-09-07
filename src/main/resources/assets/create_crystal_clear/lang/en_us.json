@@ -7,5 +7,5 @@
   "block.create_crystal_clear.copper_glass_casing": "Copper Glass Casing",
   "block.create_crystal_clear.steel_glass_casing": "Steel Glass Casing",
   "block.create_crystal_clear.steel_tinted_glass_casing": "Steel Tinted Glass Casing",
-  "itemGroup.create_crystal_clear": "Create: Crystal Clear"
+  "itemGroup.create_crystal_clear.create_crystal_clear": "Create: Crystal Clear"
 }

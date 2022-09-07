@@ -6,19 +6,19 @@
   "name": "Create: Crystal Clear",
   "description": "The ultimate Glass Casing Experience",
   "authors": [
-    "DM Earth"
+    "NovaStarter"
   ],
   "contact": {
-    "homepage": "https://github.com/DM-Earth"
+    "homepage": "https://github.com/NovaStarter/Create-Crystal-Clear"
   },
 
   "license": "MIT",
-  "icon": "logo.png",
+  "icon": "assets/create_crystal_clear/logo.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.cyvack.create_crystal_clear.Create_Crystal_Clear"
+      "com.cyvack.create_crystal_clear.CreateCrystalClear"
     ]
   },
   "mixins": [],

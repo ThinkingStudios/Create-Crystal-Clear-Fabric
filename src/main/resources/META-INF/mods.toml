@@ -6,7 +6,7 @@ license="MIT"
 modId= "create_crystal_clear"
 version="0.01"
 displayName="Create: Crystal Clear"
-logoFile="logo.png"
+logoFile= "../assets/create_crystal_clear/logo.png"
 description='''
 The ultimate Glass Casing Experience
 '''
