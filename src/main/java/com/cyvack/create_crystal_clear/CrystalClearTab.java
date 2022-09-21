@@ -1,4 +1,4 @@
-package com.cyvack.create_crystal_clear;
+package com.cyvack.create_crystal_clear.blocks;
 
 import com.cyvack.create_crystal_clear.blocks.ModBlocks;
 import com.simibubi.create.foundation.data.CreateRegistrate;
