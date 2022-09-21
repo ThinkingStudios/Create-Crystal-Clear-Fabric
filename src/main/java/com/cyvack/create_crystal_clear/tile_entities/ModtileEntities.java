@@ -1,6 +1,6 @@
 package com.cyvack.create_crystal_clear.tile_entities;
 
-import com.cyvack.create_crystal_clear.Create_Crystal_Clear;
+import com.cyvack.create_crystal_clear.CreateCrystalClear;
 import com.cyvack.create_crystal_clear.blocks.ModBlocks;
 import com.cyvack.create_crystal_clear.blocks.compat.AlloyedCompatBlocks;
 import com.simibubi.create.content.contraptions.base.KineticTileEntity;
@@ -15,9 +15,11 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 
 public class ModtileEntities {
-	private static final CreateRegistrate REGISTRATE = Create_Crystal_Clear.registrate();
+	private static final CreateRegistrate REGISTRATE = CreateCrystalClear.registrate();
 
-	/////////
+	public static CreateRegistrate getRegistrate() {
+		return REGISTRATE;
+	}
 
 	//Glass Encased Shafts
 	public static final BlockEntityEntry<KineticTileEntity> GLASS_ENCASED_SHAFT = REGISTRATE
@@ -55,6 +57,4 @@ public class ModtileEntities {
 						 ModBlocks.TRAIN_CLEAR_GLASS_ENCASED_LARGE_COGWHEEL)
 			.renderer(()-> EncasedCogRenderer::large)
 			.register();
-
-	public static void register() {}
 }

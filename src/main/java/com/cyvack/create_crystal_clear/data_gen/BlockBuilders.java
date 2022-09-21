@@ -44,7 +44,7 @@ import static com.simibubi.create.foundation.data.BlockStateGen.axisBlock;
 import static com.simibubi.create.foundation.data.CreateRegistrate.connectedTextures;
 
 public class BlockBuilders {
-	private static final CreateRegistrate REGISTRATE = Create_Crystal_Clear.registrate();
+	private static final CreateRegistrate REGISTRATE = CreateCrystalClear.registrate();
 
 	private static @NotNull Properties glassProperties(Properties p) {
 		return p.isValidSpawn(BlockBuilders::never)
@@ -185,7 +185,7 @@ public class BlockBuilders {
 				return p.models()
 					.withExistingParent(modelName, p.modLoc("block/" + blockFolder + "/block" + suffix))
 					//Normal Casing
-					.texture("casing", Create_Crystal_Clear.asResource("block/" + casing + "_casing"))
+					.texture("casing", CreateCrystalClear.asResource("block/" + casing + "_casing"))
 					//Backing
 					.texture("1", getBacking(casingType))
 					//Gearbox
@@ -195,7 +195,7 @@ public class BlockBuilders {
 				}, false))
 				.item()
 				.model((c, p) -> p.withExistingParent(c.getName(), p.modLoc("block/" + blockFolder + "/item"))
-					.texture("casing", Create_Crystal_Clear.asResource("block/" + casing + "_casing"))
+					.texture("casing", CreateCrystalClear.asResource("block/" + casing + "_casing"))
 					//Backing
 					.texture("1", getBacking(casingType))
 					//Gearbox
@@ -208,17 +208,17 @@ public class BlockBuilders {
 	private static ResourceLocation getBacking(String backing){
 			return backing.equals("andesite")? new ResourceLocation("block/stripped_spruce_log_top") :
 					backing.equals("brass") ? new ResourceLocation("block/stripped_dark_oak_log_top") :
-					Create_Crystal_Clear.asResource("block/" + backing + "_backing");
+					CreateCrystalClear.asResource("block/" + backing + "_backing");
 	}
 
 	private static ResourceLocation getGearbox(String opening){
 			return 	opening.equals("brass_") ?
 					Create.asResource("block/" + opening + "gearbox") :
-					Create_Crystal_Clear.asResource("block/" + opening + "gearbox");
+					CreateCrystalClear.asResource("block/" + opening + "gearbox");
 	}
 
 	private static ResourceLocation getSiding(String siding, String encasedSuffix){
-		return Create_Crystal_Clear.asResource("block/encased_cogwheels/" + siding + encasedSuffix);
+		return CreateCrystalClear.asResource("block/encased_cogwheels/" + siding + encasedSuffix);
 	}
 
 	private static <B extends RotatedPillarKineticBlock, P> BlockBuilder<B, P> glassencasedBase(BlockBuilder<B, P> b, Supplier<ItemLike> drop) {

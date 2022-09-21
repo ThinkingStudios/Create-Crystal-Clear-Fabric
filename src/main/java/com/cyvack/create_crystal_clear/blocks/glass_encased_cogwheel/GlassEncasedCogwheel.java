@@ -19,6 +19,8 @@ import com.simibubi.create.content.schematics.ItemRequirement;
 import com.simibubi.create.foundation.block.ITE;
 import com.simibubi.create.foundation.utility.VoxelShaper;
 import com.tterrag.registrate.util.entry.BlockEntry;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
@@ -41,8 +43,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class GlassEncasedCogwheel extends RotatedPillarKineticBlock implements ICogWheel, ITE<SimpleKineticTileEntity>, ISpecialBlockItemRequirement, ITransformableBlock {
 	public static final BooleanProperty TOP_SHAFT = BooleanProperty.create("top_shaft");
@@ -90,16 +90,6 @@ public class GlassEncasedCogwheel extends RotatedPillarKineticBlock implements I
 
 	@Override
 	public void fillItemCategory(CreativeModeTab pTab, NonNullList<ItemStack> pItems) {}
-
-	@Override
-	public ItemStack getCloneItemStack(BlockState state, HitResult target, BlockGetter world, BlockPos pos, Player player) {
-		if (target instanceof BlockHitResult)
-			return ((BlockHitResult) target).getDirection()
-					.getAxis() != getRotationAxis(state)
-					? isLarge ? AllBlocks.LARGE_COGWHEEL.asStack() : AllBlocks.COGWHEEL.asStack()
-					: getCasing().asStack();
-		return super.getCloneItemStack(state, target, world, pos, player);
-	}
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
@@ -288,7 +278,7 @@ public class GlassEncasedCogwheel extends RotatedPillarKineticBlock implements I
 
 	@SuppressWarnings("deprecation")
 	@Override
-	@OnlyIn(Dist.CLIENT)
+	@Environment(EnvType.CLIENT)
 	public boolean skipRendering(BlockState pState, BlockState pAdjacentBlockState, Direction side) {
 		return ((pState.getBlock() instanceof GlassEncasedCogwheel) && (pAdjacentBlockState.getBlock() instanceof GlassEncasedCogwheel));
 	}

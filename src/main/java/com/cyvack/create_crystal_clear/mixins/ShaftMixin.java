@@ -1,7 +1,7 @@
 package com.cyvack.create_crystal_clear.mixins;
 
 
-import com.cyvack.create_crystal_clear.Create_Crystal_Clear;
+import com.cyvack.create_crystal_clear.CreateCrystalClear;
 import com.cyvack.create_crystal_clear.blocks.glass_encased_shaft.GlassEncasedShaftBlock;
 import com.cyvack.create_crystal_clear.blocks.ModBlocks;
 import com.cyvack.create_crystal_clear.blocks.compat.AlloyedCompatBlocks;
@@ -54,7 +54,7 @@ public class ShaftMixin {
 			}
 		}
 		private GlassEncasedShaftBlock steelencasedShaft(){
-			if (Create_Crystal_Clear.isAlloyedLoaded) {
+			if (CreateCrystalClear.isAlloyedLoaded) {
 				return AlloyedCompatBlocks.STEEL_GLASS_ENCASED_SHAFT.get();
 			}
 			return ModBlocks.ANDESITE_GLASS_ENCASED_SHAFT.get();
