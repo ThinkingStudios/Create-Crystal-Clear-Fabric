@@ -66,8 +66,16 @@ public class ModBlocks {
 			BRASS_CLEAR_GLASS_ENCASED_LARGE_COGWHEEL = glassEncasedCogwheel("brass", true, true, p -> GlassEncasedCogwheel.brass_clear_glass(true, p)),
 			TRAIN_CLEAR_GLASS_ENCASED_LARGE_COGWHEEL =  glassEncasedCogwheel("train", true, true, p -> GlassEncasedCogwheel.train_clear_glass(true, p));
 
-    public static final BlockEntry<TintedGlassCasing>
-            STEEL_TINTED_GLASS_CASING = tintedGlassCasing("steel_tinted_glass_casing", () -> new SimpleCTBehaviour((ModSpriteShifts.STEEL_TINTED_GLASS_CASING)));
+	public static final BlockEntry<GlassCasing>
+			STEEL_GLASS_CASING =
+			glasscasing("steel_glass_casing", ()-> new SimpleCTBehaviour((ModSpriteShifts.STEEL_GLASS_CASING)));
+
+	public static final BlockEntry<TintedGlassCasing>
+			STEEL_TINTED_GLASS_CASING =
+			tintedglasscasing("steel_tinted_glass_casing", () -> new SimpleCTBehaviour((ModSpriteShifts.STEEL_TINTED_GLASS_CASING)));
+
+	public static final BlockEntry<GlassEncasedShaftBlock>
+			STEEL_GLASS_ENCASED_SHAFT = glassEncasedShaft("steel", false, GlassEncasedShaftBlock::steelglass);
 
     public static void register() {
     }

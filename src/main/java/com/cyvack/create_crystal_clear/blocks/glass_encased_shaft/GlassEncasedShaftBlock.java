@@ -2,7 +2,6 @@ package com.cyvack.create_crystal_clear.blocks.glass_encased_shaft;
 
 import com.cyvack.create_crystal_clear.blocks.glass_casings.GlassCasing;
 import com.cyvack.create_crystal_clear.blocks.ModBlocks;
-import com.cyvack.create_crystal_clear.blocks.compat.AlloyedCompatBlocks;
 import com.cyvack.create_crystal_clear.tile_entities.ModtileEntities;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.content.contraptions.base.KineticTileEntity;
@@ -52,7 +51,7 @@ public class GlassEncasedShaftBlock extends AbstractEncasedShaftBlock implements
 		return new GlassEncasedShaftBlock(properties, ModBlocks.TRAIN_CLEAR_GLASS_CASING);
 	}
 	public static GlassEncasedShaftBlock steelglass(Properties properties) {
-		return new GlassEncasedShaftBlock(properties, AlloyedCompatBlocks.STEEL_GLASS_CASING);
+		return new GlassEncasedShaftBlock(properties, ModBlocks.STEEL_GLASS_CASING);
 	}
 
 

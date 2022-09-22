@@ -4,7 +4,6 @@ package com.cyvack.create_crystal_clear.mixins;
 import com.cyvack.create_crystal_clear.CreateCrystalClear;
 import com.cyvack.create_crystal_clear.blocks.glass_encased_shaft.GlassEncasedShaftBlock;
 import com.cyvack.create_crystal_clear.blocks.ModBlocks;
-import com.cyvack.create_crystal_clear.blocks.compat.AlloyedCompatBlocks;
 import com.simibubi.create.content.contraptions.base.KineticTileEntity;
 import com.simibubi.create.content.contraptions.relays.elementary.ShaftBlock;
 import net.minecraft.core.BlockPos;
@@ -55,7 +54,7 @@ public class ShaftMixin {
 		}
 		private GlassEncasedShaftBlock steelencasedShaft(){
 			if (CreateCrystalClear.isAlloyedLoaded) {
-				return AlloyedCompatBlocks.STEEL_GLASS_ENCASED_SHAFT.get();
+				return ModBlocks.STEEL_GLASS_ENCASED_SHAFT.get();
 			}
 			return ModBlocks.ANDESITE_GLASS_ENCASED_SHAFT.get();
 		}
