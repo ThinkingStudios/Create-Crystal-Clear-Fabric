@@ -1,26 +1,15 @@
 package com.cyvack.create_crystal_clear.blocks;
 
-import com.cyvack.create_crystal_clear.CreateCrystalClear;
-import com.cyvack.create_crystal_clear.CrystalClearTab;
 import com.cyvack.create_crystal_clear.blocks.glass_casings.GlassCasing;
 import com.cyvack.create_crystal_clear.blocks.glass_casings.TintedGlassCasing;
 import com.cyvack.create_crystal_clear.blocks.glass_encased_cogwheel.GlassEncasedCogwheel;
 import com.cyvack.create_crystal_clear.blocks.glass_encased_shaft.GlassEncasedShaftBlock;
 import com.simibubi.create.foundation.block.connected.SimpleCTBehaviour;
-import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.tterrag.registrate.util.entry.BlockEntry;
 
-import static com.cyvack.create_crystal_clear.data.BlockBuilders.glassCasing;
-import static com.cyvack.create_crystal_clear.data.BlockBuilders.tintedGlassCasing;
 import static com.cyvack.create_crystal_clear.data_gen.BlockBuilders.*;
 
 public class ModBlocks {
-    private static final
-    CreateRegistrate REGISTRATE = CreateCrystalClear.registrate().creativeModeTab(() -> CrystalClearTab.GLASS_TAB);
-
-    public static CreateRegistrate getRegistrate() {
-        return REGISTRATE;
-    }
 	//Casings
 	public static final BlockEntry<GlassCasing>
 			ANDESITE_GLASS_CASING = glasscasing("andesite_glass_casing", () -> new SimpleCTBehaviour(ModSpriteShifts.ANDESITE_GLASS_CASING)),

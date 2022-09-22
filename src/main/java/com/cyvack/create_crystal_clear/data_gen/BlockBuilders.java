@@ -44,8 +44,6 @@ import static com.simibubi.create.foundation.data.BlockStateGen.axisBlock;
 import static com.simibubi.create.foundation.data.CreateRegistrate.connectedTextures;
 
 public class BlockBuilders {
-	private static final CreateRegistrate REGISTRATE = CreateCrystalClear.registrate();
-
 	private static @NotNull Properties glassProperties(Properties p) {
 		return p.isValidSpawn(BlockBuilders::never)
 				.isRedstoneConductor(BlockBuilders::never)
@@ -65,7 +63,7 @@ public class BlockBuilders {
 	//Glass Casings
 		//Entry
 		public static BlockEntry<GlassCasing> glasscasing(String name, Supplier<ConnectedTextureBehaviour> behaviour) {
-			return REGISTRATE.block(name, GlassCasing::new)
+			return CreateCrystalClear.registrate().block(name, GlassCasing::new)
 					.onRegister(connectedTextures(behaviour))
 					.addLayer(() -> RenderType::cutout)
 					.initialProperties(() -> Blocks.GLASS)
@@ -84,7 +82,7 @@ public class BlockBuilders {
 	//Tinted Glass Casings
 		//Entry
 		public static  BlockEntry<TintedGlassCasing> tintedglasscasing(String name, Supplier<ConnectedTextureBehaviour> behaviour){
-			return REGISTRATE.block(name, TintedGlassCasing::new)
+			return CreateCrystalClear.registrate().block(name, TintedGlassCasing::new)
 				.onRegister(connectedTextures(behaviour))
 				.addLayer(() -> RenderType::translucent)
 				.initialProperties(() -> Blocks.TINTED_GLASS)
@@ -105,7 +103,7 @@ public class BlockBuilders {
 		//Entry
 		public static BlockEntry<GlassEncasedShaftBlock> glassEncasedShaft(String casingType, Boolean clear, NonNullFunction<Properties, GlassEncasedShaftBlock> factory){
 			String name = clear?  casingType + "_clear":casingType;
-			return 	REGISTRATE
+			return 	CreateCrystalClear.registrate()
 					.block(name + "_glass_encased_shaft", factory)
 					.transform(glassEncasedShaftBuilder(name + "_glass", () -> ModSpriteShifts.omni(name+"_glass_casing")))
 					.register();
@@ -132,7 +130,7 @@ public class BlockBuilders {
 			String name = clear? casingType+"_clear" : casingType;
 			return !large?
 				//small cog
-				REGISTRATE
+				CreateCrystalClear.registrate()
 				.block(name+"_glass_encased_cogwheel", factory)
 				.transform(BlockBuilders.glassencasedCogwheel(casingType, clear,
 						()-> ModSpriteShifts.omni(name+"_glass_casing")))
@@ -141,7 +139,7 @@ public class BlockBuilders {
 						ModSpriteShifts.horizontal("encased_cogwheels/" + casingType +"_encased_cogwheel_side")))))
 				.register() :
 				//Large Cog
-				REGISTRATE
+				CreateCrystalClear.registrate()
 				.block(name+ "_glass_encased_large_cogwheel", factory)
 				.transform(BlockBuilders.glassencasedLargeCogwheel(casingType, clear,
 						() -> ModSpriteShifts.omni(name+"_glass_casing")))

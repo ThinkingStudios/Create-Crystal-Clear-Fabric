@@ -17,7 +17,7 @@ public class CreateCrystalClear implements ModInitializer {
     }
 
     public static CreateRegistrate registrate() {
-        return REGISTRATE.get();
+        return REGISTRATE.get().creativeModeTab(() -> CrystalClearTab.GLASS_TAB);
     }
 
     public static Boolean isAlloyedLoaded() {
@@ -27,7 +27,11 @@ public class CreateCrystalClear implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        ModBlocks.getRegistrate().register();
-        ModtileEntities.getRegistrate().register();
+        ModBlocks.register();
+        ModtileEntities.register();
+
+        CrystalClearTab.register();
+
+        REGISTRATE.get().register();
     }
 }

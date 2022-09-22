@@ -22,8 +22,6 @@ import java.util.function.Supplier;
 import static com.simibubi.create.foundation.data.CreateRegistrate.connectedTextures;
 
 public class BlockBuilders {
-    private static final CreateRegistrate REGISTRATE = CreateCrystalClear.registrate();
-
     private static Properties glassProperties(Properties p) {
         return p.isValidSpawn(BlockBuilders::never)
                 .isRedstoneConductor(BlockBuilders::never)
@@ -42,7 +40,7 @@ public class BlockBuilders {
 
 
     public static BlockEntry<GlassCasing> glassCasing(String name, Supplier<ConnectedTextureBehaviour> behaviour) {
-        return ModBlocks.getRegistrate().block(name, GlassCasing::new)
+        return CreateCrystalClear.registrate().block(name, GlassCasing::new)
                 .onRegister(connectedTextures(behaviour))
                 .addLayer(() -> RenderType::cutout)
                 .initialProperties(() -> Blocks.GLASS)
@@ -58,7 +56,7 @@ public class BlockBuilders {
     }
 
     public static BlockEntry<TintedGlassCasing> tintedGlassCasing(String name, Supplier<ConnectedTextureBehaviour> behaviour) {
-        return ModBlocks.getRegistrate().block(name, TintedGlassCasing::new)
+        return CreateCrystalClear.registrate().block(name, TintedGlassCasing::new)
                 .onRegister(connectedTextures(behaviour))
                 .addLayer(() -> RenderType::translucent)
                 .initialProperties(() -> Blocks.TINTED_GLASS)

@@ -12,14 +12,8 @@ import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 
 public class ModtileEntities {
-	private static final CreateRegistrate REGISTRATE = CreateCrystalClear.registrate();
-
-	public static CreateRegistrate getRegistrate() {
-		return REGISTRATE;
-	}
-
 	//Glass Encased Shafts
-	public static final BlockEntityEntry<KineticTileEntity> GLASS_ENCASED_SHAFT = REGISTRATE
+	public static final BlockEntityEntry<KineticTileEntity> GLASS_ENCASED_SHAFT = CreateCrystalClear.registrate()
 			.tileEntity("glass_encased_shaft", KineticTileEntity::new)
 			.instance(()-> ShaftInstance::new, false)
 			.validBlocks(ModBlocks.ANDESITE_GLASS_ENCASED_SHAFT, ModBlocks.ANDESITE_CLEAR_GLASS_ENCASED_SHAFT,
@@ -30,7 +24,7 @@ public class ModtileEntities {
 			.register();
 
 	//Glass Encased Small Cogs
-	public static final BlockEntityEntry<SimpleKineticTileEntity> GLASS_ENCASED_COG = REGISTRATE
+	public static final BlockEntityEntry<SimpleKineticTileEntity> GLASS_ENCASED_COG = CreateCrystalClear.registrate()
 			.tileEntity("glass_encased_cog", SimpleKineticTileEntity::new)
 			.instance(()-> EncasedCogInstance::small, false)
 			.validBlocks(ModBlocks.ANDESITE_GLASS_ENCASED_COGWHEEL,
@@ -43,7 +37,7 @@ public class ModtileEntities {
 			.register();
 
 	//Glass Encased Large Cogs
-	public static final BlockEntityEntry<SimpleKineticTileEntity> GLASS_ENCASED_LARGE_COG = REGISTRATE
+	public static final BlockEntityEntry<SimpleKineticTileEntity> GLASS_ENCASED_LARGE_COG = CreateCrystalClear.registrate()
 			.tileEntity("glass_encased_large_cog", SimpleKineticTileEntity::new)
 			.instance(()-> EncasedCogInstance::large, false)
 			.validBlocks(ModBlocks.ANDESITE_GLASS_ENCASED_LARGE_COGWHEEL,
@@ -54,4 +48,7 @@ public class ModtileEntities {
 						 ModBlocks.TRAIN_CLEAR_GLASS_ENCASED_LARGE_COGWHEEL)
 			.renderer(()-> EncasedCogRenderer::large)
 			.register();
+
+	public static void register() {
+	}
 }
