@@ -27,14 +27,14 @@ import static com.simibubi.create.content.contraptions.base.RotatedPillarKinetic
 
 @Mixin(CogWheelBlock.class)
 public class CogwheelMixin {
-@Inject(method = "use",
-		at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;getItemInHand(Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/item/ItemStack;"),
-		cancellable = true)
+	@Inject(method = "use",
+			at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;getItemInHand(Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/item/ItemStack;"),
+			cancellable = true)
 
-		private void Inject(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult ray, CallbackInfoReturnable<InteractionResult> cir){
-	ItemStack heldItem = player.getItemInHand(hand);
-	GlassEncasedCogwheel[] glassEncasedBlocks = isLarge
-			? new GlassEncasedCogwheel[] {
+	private void Inject(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult ray, CallbackInfoReturnable<InteractionResult> cir) {
+		ItemStack heldItem = player.getItemInHand(hand);
+		GlassEncasedCogwheel[] glassEncasedBlocks = isLarge
+				? new GlassEncasedCogwheel[]{
 				ModBlocks.ANDESITE_GLASS_ENCASED_LARGE_COGWHEEL.get(),
 				ModBlocks.BRASS_GLASS_ENCASED_LARGE_COGWHEEL.get(),
 				ModBlocks.TRAIN_GLASS_ENCASED_LARGE_COGWHEEL.get(),
@@ -42,7 +42,7 @@ public class CogwheelMixin {
 				ModBlocks.BRASS_CLEAR_GLASS_ENCASED_LARGE_COGWHEEL.get(),
 				ModBlocks.TRAIN_CLEAR_GLASS_ENCASED_LARGE_COGWHEEL.get()} //Add more large cogs
 
-			: new GlassEncasedCogwheel[] {
+				: new GlassEncasedCogwheel[]{
 				ModBlocks.ANDESITE_GLASS_ENCASED_COGWHEEL.get(),
 				ModBlocks.BRASS_GLASS_ENCASED_COGWHEEL.get(),
 				ModBlocks.TRAIN_GLASS_ENCASED_COGWHEEL.get(),
@@ -64,9 +64,8 @@ public class CogwheelMixin {
 
 			for (Direction d : Iterate.directionsInAxis(state.getValue(AXIS))) {
 				BlockState adjacentState = world.getBlockState(pos.relative(d));
-				if (!(adjacentState.getBlock() instanceof IRotate))
+				if (!(adjacentState.getBlock() instanceof IRotate def))
 					continue;
-				IRotate def = (IRotate) adjacentState.getBlock();
 				if (!def.hasShaftTowards(world, pos.relative(d), adjacentState, d.getOpposite()))
 					continue;
 				encasedState =
@@ -79,6 +78,6 @@ public class CogwheelMixin {
 		}
 	}
 
-@Shadow
-boolean isLarge;
+	@Shadow
+	boolean isLarge;
 }

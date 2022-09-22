@@ -1,9 +1,9 @@
 package com.cyvack.create_crystal_clear.data;
 
 import com.cyvack.create_crystal_clear.CreateCrystalClear;
-import com.cyvack.create_crystal_clear.blocks.GlassCasing;
 import com.cyvack.create_crystal_clear.blocks.ModBlocks;
-import com.cyvack.create_crystal_clear.blocks.TintedGlassCasing;
+import com.cyvack.create_crystal_clear.blocks.glass_casings.GlassCasing;
+import com.cyvack.create_crystal_clear.blocks.glass_casings.TintedGlassCasing;
 import com.simibubi.create.AllTags;
 import com.simibubi.create.foundation.block.connected.ConnectedTextureBehaviour;
 import com.simibubi.create.foundation.data.*;
