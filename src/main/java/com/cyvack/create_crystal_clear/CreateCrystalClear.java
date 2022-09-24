@@ -9,7 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class CreateCrystalClear implements ModInitializer {
     public static final String MOD_ID = "create_crystal_clear";
-    public static boolean isAlloyedLoaded = false;
+    public static boolean isAlloyedLoaded = true;
     private static final NonNullSupplier<CreateRegistrate> REGISTRATE = CreateRegistrate.lazy(MOD_ID);
 
     public static ResourceLocation asResource(String path) {

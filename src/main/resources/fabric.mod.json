@@ -21,7 +21,9 @@
       "com.cyvack.create_crystal_clear.CreateCrystalClear"
     ]
   },
-  "mixins": [],
+  "mixins": [
+    "create_crystal_clear.mixins.json"
+  ],
 
   "depends": {
     "fabricloader": ">=0.14.6",

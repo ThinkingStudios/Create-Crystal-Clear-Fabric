@@ -27,11 +27,12 @@ import static com.simibubi.create.content.contraptions.base.RotatedPillarKinetic
 
 @Mixin(CogWheelBlock.class)
 public class CogwheelMixin {
-	@Inject(method = "use",
-			at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;getItemInHand(Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/item/ItemStack;"),
-			cancellable = true)
+	@Inject(method = "use", at = @At("HEAD"), cancellable = true)
 
 	private void Inject(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult ray, CallbackInfoReturnable<InteractionResult> cir) {
+		if (player.isShiftKeyDown() || !player.mayBuild())
+			cir.setReturnValue(InteractionResult.PASS);
+
 		ItemStack heldItem = player.getItemInHand(hand);
 		GlassEncasedCogwheel[] glassEncasedBlocks = isLarge
 				? new GlassEncasedCogwheel[]{

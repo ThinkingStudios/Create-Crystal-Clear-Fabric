@@ -24,38 +24,37 @@ import static com.simibubi.create.content.contraptions.base.RotatedPillarKinetic
 @Mixin(ShaftBlock.class)
 public class ShaftMixin {
 
+	@Inject(method = "use", at = @At("HEAD"), cancellable = true)
+	private void Inject(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult ray, CallbackInfoReturnable<InteractionResult> cir) {
+		if (player.isShiftKeyDown() || !player.mayBuild())
+			cir.setReturnValue(InteractionResult.PASS);
 
-		@Inject(method = "use", at = @At(value ="INVOKE", target = "Lnet/minecraft/world/entity/player/Player;getItemInHand(Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/item/ItemStack;"), cancellable = true)
-			private void Inject(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult ray, CallbackInfoReturnable<InteractionResult> cir){
-			ItemStack heldItem = player.getItemInHand(hand);
-			GlassEncasedShaftBlock[] encasedShaft = new GlassEncasedShaftBlock[] {
-					ModBlocks.ANDESITE_GLASS_ENCASED_SHAFT.get(),
-					ModBlocks.ANDESITE_CLEAR_GLASS_ENCASED_SHAFT.get(),
-					ModBlocks.BRASS_GLASS_ENCASED_SHAFT.get(),
-					ModBlocks.BRASS_CLEAR_GLASS_ENCASED_SHAFT.get(),
-					ModBlocks.TRAIN_GLASS_ENCASED_SHAFT.get(),
-					ModBlocks.TRAIN_CLEAR_GLASS_ENCASED_SHAFT.get(),
-					steelencasedShaft()
-			};
+		ItemStack heldItem = player.getItemInHand(hand);
+		GlassEncasedShaftBlock[] encasedShaft = new GlassEncasedShaftBlock[]{
+				ModBlocks.ANDESITE_GLASS_ENCASED_SHAFT.get(),
+				ModBlocks.ANDESITE_CLEAR_GLASS_ENCASED_SHAFT.get(),
+				ModBlocks.BRASS_GLASS_ENCASED_SHAFT.get(),
+				ModBlocks.BRASS_CLEAR_GLASS_ENCASED_SHAFT.get(),
+				ModBlocks.TRAIN_GLASS_ENCASED_SHAFT.get(),
+				ModBlocks.TRAIN_CLEAR_GLASS_ENCASED_SHAFT.get(),
+				steelencasedShaft()
+		};
 
-			for (GlassEncasedShaftBlock glassEncasedShaftBlock : encasedShaft){
+		for (GlassEncasedShaftBlock glassEncasedShaftBlock : encasedShaft) {
+			if (!glassEncasedShaftBlock.getCasing()
+					.isIn(heldItem))
+				continue;
 
-				if (!glassEncasedShaftBlock.getCasing()
-						.isIn(heldItem))
-					continue;
-
-				if (world.isClientSide)
-					cir.setReturnValue(InteractionResult.SUCCESS);
-
-				KineticTileEntity.switchToBlockState(world, pos, glassEncasedShaftBlock.defaultBlockState()
-						.setValue(AXIS, state.getValue(AXIS)));
+			if (world.isClientSide)
 				cir.setReturnValue(InteractionResult.SUCCESS);
-			}
+
+			KineticTileEntity.switchToBlockState(world, pos, glassEncasedShaftBlock.defaultBlockState()
+					.setValue(AXIS, state.getValue(AXIS)));
+			cir.setReturnValue(InteractionResult.SUCCESS);
 		}
-		private GlassEncasedShaftBlock steelencasedShaft(){
-			if (CreateCrystalClear.isAlloyedLoaded) {
-				return ModBlocks.STEEL_GLASS_ENCASED_SHAFT.get();
-			}
-			return ModBlocks.ANDESITE_GLASS_ENCASED_SHAFT.get();
-		}
+	}
+
+	private GlassEncasedShaftBlock steelencasedShaft() {
+		return ModBlocks.STEEL_GLASS_ENCASED_SHAFT.get();
+	}
 }
