@@ -1,6 +1,6 @@
 package com.cyvack.create_crystal_clear.blocks;
 
-import com.cyvack.create_crystal_clear.CreateCrystalClear;
+import com.cyvack.create_crystal_clear.Create_Crystal_Clear;
 import com.simibubi.create.AllSpriteShifts;
 import com.simibubi.create.foundation.block.connected.AllCTTypes;
 import com.simibubi.create.foundation.block.connected.CTSpriteShiftEntry;
@@ -60,7 +60,7 @@ public class ModSpriteShifts {
 	/////
 
 	private static CTSpriteShiftEntry getCT(CTType type, String blockTextureName, String connectedTextureName) {
-		return CTSpriteShifter.getCT(type, CreateCrystalClear.asResource("block/" + blockTextureName), CreateCrystalClear.asResource("block/" + connectedTextureName + "_connected"));
+		return CTSpriteShifter.getCT(type, Create_Crystal_Clear.asResource("block/" + blockTextureName), Create_Crystal_Clear.asResource("block/" + connectedTextureName + "_connected"));
 	}
 
 	private static CTSpriteShiftEntry getCT(CTType type, String blockTextureName) {

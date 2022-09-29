@@ -3,10 +3,11 @@
   "id": "create_crystal_clear",
   "version": "${version}",
 
-  "name": "Create: Crystal Clear",
+  "name": "Create: Crystal Clear Refabricated",
   "description": "The ultimate Glass Casing Experience",
   "authors": [
-    "NovaStarter"
+    "NovaStarter",
+    "DM Fabric Ports"
   ],
   "contact": {
     "homepage": "https://github.com/NovaStarter/Create-Crystal-Clear"
@@ -18,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.cyvack.create_crystal_clear.CreateCrystalClear"
+      "com.cyvack.create_crystal_clear.Create_Crystal_Clear"
     ]
   },
   "mixins": [
@@ -30,7 +31,7 @@
     "fabric": "*",
     "minecraft": "~1.18.2",
     "java": ">=17",
-    "create": "*"
+    "create": "0.5.0e"
   },
   "suggests": {
     "quilt_loader": "*"

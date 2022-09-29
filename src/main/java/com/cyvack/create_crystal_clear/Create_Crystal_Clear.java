@@ -7,7 +7,7 @@ import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.resources.ResourceLocation;
 
-public class CreateCrystalClear implements ModInitializer {
+public class Create_Crystal_Clear implements ModInitializer {
     public static final String MOD_ID = "create_crystal_clear";
     public static boolean isAlloyedLoaded = true;
     private static final NonNullSupplier<CreateRegistrate> REGISTRATE = CreateRegistrate.lazy(MOD_ID);

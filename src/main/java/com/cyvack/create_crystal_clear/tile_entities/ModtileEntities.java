@@ -1,6 +1,6 @@
 package com.cyvack.create_crystal_clear.tile_entities;
 
-import com.cyvack.create_crystal_clear.CreateCrystalClear;
+import com.cyvack.create_crystal_clear.Create_Crystal_Clear;
 import com.cyvack.create_crystal_clear.blocks.ModBlocks;
 import com.simibubi.create.content.contraptions.base.KineticTileEntity;
 import com.simibubi.create.content.contraptions.relays.elementary.SimpleKineticTileEntity;
@@ -8,12 +8,11 @@ import com.simibubi.create.content.contraptions.relays.encased.EncasedCogInstanc
 import com.simibubi.create.content.contraptions.relays.encased.EncasedCogRenderer;
 import com.simibubi.create.content.contraptions.relays.encased.ShaftInstance;
 import com.simibubi.create.content.contraptions.relays.encased.ShaftRenderer;
-import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 
 public class ModtileEntities {
 	//Glass Encased Shafts
-	public static final BlockEntityEntry<KineticTileEntity> GLASS_ENCASED_SHAFT = CreateCrystalClear.registrate()
+	public static final BlockEntityEntry<KineticTileEntity> GLASS_ENCASED_SHAFT = Create_Crystal_Clear.registrate()
 			.tileEntity("glass_encased_shaft", KineticTileEntity::new)
 			.instance(()-> ShaftInstance::new, false)
 			.validBlocks(ModBlocks.ANDESITE_GLASS_ENCASED_SHAFT, ModBlocks.ANDESITE_CLEAR_GLASS_ENCASED_SHAFT,
@@ -24,7 +23,7 @@ public class ModtileEntities {
 			.register();
 
 	//Glass Encased Small Cogs
-	public static final BlockEntityEntry<SimpleKineticTileEntity> GLASS_ENCASED_COG = CreateCrystalClear.registrate()
+	public static final BlockEntityEntry<SimpleKineticTileEntity> GLASS_ENCASED_COG = Create_Crystal_Clear.registrate()
 			.tileEntity("glass_encased_cog", SimpleKineticTileEntity::new)
 			.instance(()-> EncasedCogInstance::small, false)
 			.validBlocks(ModBlocks.ANDESITE_GLASS_ENCASED_COGWHEEL,
@@ -37,7 +36,7 @@ public class ModtileEntities {
 			.register();
 
 	//Glass Encased Large Cogs
-	public static final BlockEntityEntry<SimpleKineticTileEntity> GLASS_ENCASED_LARGE_COG = CreateCrystalClear.registrate()
+	public static final BlockEntityEntry<SimpleKineticTileEntity> GLASS_ENCASED_LARGE_COG = Create_Crystal_Clear.registrate()
 			.tileEntity("glass_encased_large_cog", SimpleKineticTileEntity::new)
 			.instance(()-> EncasedCogInstance::large, false)
 			.validBlocks(ModBlocks.ANDESITE_GLASS_ENCASED_LARGE_COGWHEEL,

@@ -1,7 +1,6 @@
 package com.cyvack.create_crystal_clear.data;
 
-import com.cyvack.create_crystal_clear.CreateCrystalClear;
-import com.cyvack.create_crystal_clear.blocks.ModBlocks;
+import com.cyvack.create_crystal_clear.Create_Crystal_Clear;
 import com.cyvack.create_crystal_clear.blocks.glass_casings.GlassCasing;
 import com.cyvack.create_crystal_clear.blocks.glass_casings.TintedGlassCasing;
 import com.simibubi.create.AllTags;
@@ -40,7 +39,7 @@ public class BlockBuilders {
 
 
     public static BlockEntry<GlassCasing> glassCasing(String name, Supplier<ConnectedTextureBehaviour> behaviour) {
-        return CreateCrystalClear.registrate().block(name, GlassCasing::new)
+        return Create_Crystal_Clear.registrate().block(name, GlassCasing::new)
                 .onRegister(connectedTextures(behaviour))
                 .addLayer(() -> RenderType::cutout)
                 .initialProperties(() -> Blocks.GLASS)
@@ -56,7 +55,7 @@ public class BlockBuilders {
     }
 
     public static BlockEntry<TintedGlassCasing> tintedGlassCasing(String name, Supplier<ConnectedTextureBehaviour> behaviour) {
-        return CreateCrystalClear.registrate().block(name, TintedGlassCasing::new)
+        return Create_Crystal_Clear.registrate().block(name, TintedGlassCasing::new)
                 .onRegister(connectedTextures(behaviour))
                 .addLayer(() -> RenderType::translucent)
                 .initialProperties(() -> Blocks.TINTED_GLASS)

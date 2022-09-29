@@ -1,7 +1,6 @@
 package com.cyvack.create_crystal_clear.mixins;
 
 
-import com.cyvack.create_crystal_clear.CreateCrystalClear;
 import com.cyvack.create_crystal_clear.blocks.glass_encased_shaft.GlassEncasedShaftBlock;
 import com.cyvack.create_crystal_clear.blocks.ModBlocks;
 import com.simibubi.create.content.contraptions.base.KineticTileEntity;
