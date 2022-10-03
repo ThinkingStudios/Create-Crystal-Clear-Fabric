@@ -28,7 +28,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class GlassEncasedShaftBlock extends AbstractEncasedShaftBlock implements ITE<KineticTileEntity>, ISpecialBlockItemRequirement {
 
-	private BlockEntry<com.cyvack.create_crystal_clear.blocks.glass_casings.GlassCasing> GlassCasing;
+	private BlockEntry<GlassCasing> GlassCasing;
 
 	public static GlassEncasedShaftBlock andesiteglass(Properties properties) {
 		return new GlassEncasedShaftBlock(properties, ModBlocks.ANDESITE_GLASS_CASING);
@@ -50,6 +50,7 @@ public class GlassEncasedShaftBlock extends AbstractEncasedShaftBlock implements
 	public static GlassEncasedShaftBlock trainclearglass(Properties properties){
 		return new GlassEncasedShaftBlock(properties, ModBlocks.TRAIN_CLEAR_GLASS_CASING);
 	}
+
 	public static GlassEncasedShaftBlock steelglass(Properties properties) {
 		return new GlassEncasedShaftBlock(properties, ModBlocks.STEEL_GLASS_CASING);
 	}
@@ -100,6 +101,7 @@ public class GlassEncasedShaftBlock extends AbstractEncasedShaftBlock implements
 	public boolean skipRendering(BlockState pState, BlockState pAdjacentBlockState, Direction side) {
 		return ((pState.getBlock() instanceof GlassEncasedShaftBlock) && (pAdjacentBlockState.getBlock() instanceof GlassEncasedShaftBlock));
 	}
+
 	@SuppressWarnings("deprecation")
 	public float getShadeBrightness(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
 		return 1.0F;

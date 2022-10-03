@@ -20,11 +20,6 @@ public class Create_Crystal_Clear implements ModInitializer {
         return REGISTRATE.get().creativeModeTab(() -> CrystalClearTab.GLASS_TAB);
     }
 
-    public static Boolean isAlloyedLoaded() {
-        //return FabricLoader.getInstance().isModLoaded("alloyed");
-        return true;
-    }
-
     @Override
     public void onInitialize() {
         ModBlocks.register();
