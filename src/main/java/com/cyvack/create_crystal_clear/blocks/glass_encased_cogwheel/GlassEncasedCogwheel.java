@@ -2,8 +2,6 @@ package com.cyvack.create_crystal_clear.blocks.glass_encased_cogwheel;
 
 import com.cyvack.create_crystal_clear.blocks.glass_casings.GlassCasing;
 import com.cyvack.create_crystal_clear.blocks.ModBlocks;
-import com.cyvack.create_crystal_clear.blocks.glass_encased_shaft.GlassEncasedShaftBlock;
-import com.cyvack.create_crystal_clear.compat.blocks.AlloyedCompatBlocks;
 import com.cyvack.create_crystal_clear.tile_entities.ModtileEntities;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.content.contraptions.base.IRotate;
@@ -26,12 +24,10 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
@@ -42,8 +38,6 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.HitResult;
 
 public class GlassEncasedCogwheel extends RotatedPillarKineticBlock implements ICogWheel, ITE<SimpleKineticTileEntity>, ISpecialBlockItemRequirement, ITransformableBlock {
 	public static final BooleanProperty TOP_SHAFT = BooleanProperty.create("top_shaft");

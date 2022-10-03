@@ -23,9 +23,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
 import static com.simibubi.create.content.contraptions.base.RotatedPillarKineticBlock.AXIS;
 
 
@@ -80,7 +77,6 @@ public class CogwheelMixin {
 			KineticTileEntity.switchToBlockState(world, pos, encasedState);
 			cir.setReturnValue(InteractionResult.SUCCESS);
 		}
-
 	}
 
 	@Shadow
