@@ -1,6 +1,5 @@
 package com.cyvack.create_crystal_clear.mixins;
 
-
 import static com.simibubi.create.content.contraptions.base.RotatedPillarKineticBlock.AXIS;
 
 import org.spongepowered.asm.mixin.Mixin;
@@ -26,32 +25,29 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
-
 @Mixin(CogWheelBlock.class)
 public class CogwheelMixin {
-	@Inject(method = "use", at = @At("HEAD"), cancellable = true)
+	@Inject(method = "use", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;getItemInHand(Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/item/ItemStack;"), cancellable = true)
 
-	private void Inject(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult ray, CallbackInfoReturnable<InteractionResult> cir) {
-		if (player.isShiftKeyDown() || !player.mayBuild())
-			cir.setReturnValue(InteractionResult.PASS);
-
+	private void Inject(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand,
+			BlockHitResult ray, CallbackInfoReturnable<InteractionResult> cir) {
 		ItemStack heldItem = player.getItemInHand(hand);
-		GlassEncasedCogwheel[] glassEncasedBlocks = isLarge
-				? new GlassEncasedCogwheel[]{
-				ModBlocks.ANDESITE_GLASS_ENCASED_LARGE_COGWHEEL.get(),
-				ModBlocks.BRASS_GLASS_ENCASED_LARGE_COGWHEEL.get(),
-				ModBlocks.TRAIN_GLASS_ENCASED_LARGE_COGWHEEL.get(),
-				ModBlocks.ANDESITE_CLEAR_GLASS_ENCASED_LARGE_COGWHEEL.get(),
-				ModBlocks.BRASS_CLEAR_GLASS_ENCASED_LARGE_COGWHEEL.get(),
-				ModBlocks.TRAIN_CLEAR_GLASS_ENCASED_LARGE_COGWHEEL.get()} //Add more large cogs
+		GlassEncasedCogwheel[] glassEncasedBlocks = this.isLarge
+				? new GlassEncasedCogwheel[] {
+						ModBlocks.ANDESITE_GLASS_ENCASED_LARGE_COGWHEEL.get(),
+						ModBlocks.BRASS_GLASS_ENCASED_LARGE_COGWHEEL.get(),
+						ModBlocks.TRAIN_GLASS_ENCASED_LARGE_COGWHEEL.get(),
+						ModBlocks.ANDESITE_CLEAR_GLASS_ENCASED_LARGE_COGWHEEL.get(),
+						ModBlocks.BRASS_CLEAR_GLASS_ENCASED_LARGE_COGWHEEL.get(),
+						ModBlocks.TRAIN_CLEAR_GLASS_ENCASED_LARGE_COGWHEEL.get() } // Add more large cogs
 
-				: new GlassEncasedCogwheel[]{
-				ModBlocks.ANDESITE_GLASS_ENCASED_COGWHEEL.get(),
-				ModBlocks.BRASS_GLASS_ENCASED_COGWHEEL.get(),
-				ModBlocks.TRAIN_GLASS_ENCASED_COGWHEEL.get(),
-				ModBlocks.ANDESITE_CLEAR_GLASS_ENCASED_COGWHEEL.get(),
-				ModBlocks.BRASS_CLEAR_GLASS_ENCASED_COGWHEEL.get(),
-				ModBlocks.TRAIN_CLEAR_GLASS_ENCASED_COGWHEEL.get()}; //Add more small cogs
+				: new GlassEncasedCogwheel[] {
+						ModBlocks.ANDESITE_GLASS_ENCASED_COGWHEEL.get(),
+						ModBlocks.BRASS_GLASS_ENCASED_COGWHEEL.get(),
+						ModBlocks.TRAIN_GLASS_ENCASED_COGWHEEL.get(),
+						ModBlocks.ANDESITE_CLEAR_GLASS_ENCASED_COGWHEEL.get(),
+						ModBlocks.BRASS_CLEAR_GLASS_ENCASED_COGWHEEL.get(),
+						ModBlocks.TRAIN_CLEAR_GLASS_ENCASED_COGWHEEL.get() }; // Add more small cogs
 
 		for (GlassEncasedCogwheel glassEncasedCogwheel : glassEncasedBlocks) {
 			if (!glassEncasedCogwheel.getCasing()
@@ -66,12 +62,13 @@ public class CogwheelMixin {
 
 			for (Direction d : Iterate.directionsInAxis(state.getValue(AXIS))) {
 				BlockState adjacentState = world.getBlockState(pos.relative(d));
-				if (!(adjacentState.getBlock() instanceof IRotate def))
+				if (!(adjacentState.getBlock() instanceof IRotate))
 					continue;
+				IRotate def = (IRotate) adjacentState.getBlock();
 				if (!def.hasShaftTowards(world, pos.relative(d), adjacentState, d.getOpposite()))
 					continue;
-				encasedState =
-						encasedState.cycle(d.getAxisDirection() == Direction.AxisDirection.POSITIVE ? GlassEncasedCogwheel.TOP_SHAFT
+				encasedState = encasedState
+						.cycle(d.getAxisDirection() == Direction.AxisDirection.POSITIVE ? GlassEncasedCogwheel.TOP_SHAFT
 								: GlassEncasedCogwheel.BOTTOM_SHAFT);
 			}
 

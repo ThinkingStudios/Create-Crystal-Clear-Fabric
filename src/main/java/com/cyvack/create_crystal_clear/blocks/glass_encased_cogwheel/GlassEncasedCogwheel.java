@@ -25,10 +25,12 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
@@ -39,6 +41,8 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.HitResult;
 
 public class GlassEncasedCogwheel extends RotatedPillarKineticBlock implements ICogWheel, ITE<SimpleKineticTileEntity>, ISpecialBlockItemRequirement, ITransformableBlock {
 	public static final BooleanProperty TOP_SHAFT = BooleanProperty.create("top_shaft");
@@ -86,6 +90,16 @@ public class GlassEncasedCogwheel extends RotatedPillarKineticBlock implements I
 
 	@Override
 	public void fillItemCategory(CreativeModeTab pTab, NonNullList<ItemStack> pItems) {}
+
+	// @Override
+	public ItemStack getCloneItemStack(BlockState state, HitResult target, BlockGetter world, BlockPos pos, Player player) {
+		if (target instanceof BlockHitResult)
+			return ((BlockHitResult) target).getDirection()
+					.getAxis() != getRotationAxis(state)
+					? isLarge ? AllBlocks.LARGE_COGWHEEL.asStack() : AllBlocks.COGWHEEL.asStack()
+					: getCasing().asStack();
+		return this.asItem().getDefaultInstance();
+	}
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
@@ -272,6 +286,7 @@ public class GlassEncasedCogwheel extends RotatedPillarKineticBlock implements I
 		return isLarge ? ModtileEntities.GLASS_ENCASED_LARGE_COG.get() : ModtileEntities.GLASS_ENCASED_COG.get();
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	@Environment(EnvType.CLIENT)
 	public boolean skipRendering(BlockState pState, BlockState pAdjacentBlockState, Direction side) {

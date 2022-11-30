@@ -1,10 +1,8 @@
 {
   "fabric:load_conditions": [
     {
-      "condition": "fabric:item_tags_populated",
-      "values": [
-        "c:steel_ingots"
-      ]
+      "condition": "fabric:all_mods_loaded",
+      "values": ["alloyed"]
     }
   ],
   "type": "create:item_application",
@@ -13,7 +11,7 @@
       "item": "create:framed_glass"
     },
     {
-      "tag": "c:steel_ingots"
+      "item": "alloyed:steel_ingot"
     }
   ],
   "results": [
