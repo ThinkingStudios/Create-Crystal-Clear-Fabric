@@ -1,7 +1,6 @@
 package com.cyvack.create_crystal_clear.blocks;
 
 import com.cyvack.create_crystal_clear.Create_Crystal_Clear;
-import com.simibubi.create.AllSpriteShifts;
 import com.simibubi.create.foundation.block.connected.AllCTTypes;
 import com.simibubi.create.foundation.block.connected.CTSpriteShiftEntry;
 import com.simibubi.create.foundation.block.connected.CTSpriteShifter;

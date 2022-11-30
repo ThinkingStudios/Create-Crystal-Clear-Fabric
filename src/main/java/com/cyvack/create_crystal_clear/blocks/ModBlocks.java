@@ -1,14 +1,16 @@
 package com.cyvack.create_crystal_clear.blocks;
 
+import static com.cyvack.create_crystal_clear.data_gen.BlockBuilders.glassEncasedCogwheel;
+import static com.cyvack.create_crystal_clear.data_gen.BlockBuilders.glassEncasedShaft;
+import static com.cyvack.create_crystal_clear.data_gen.BlockBuilders.glasscasing;
+import static com.cyvack.create_crystal_clear.data_gen.BlockBuilders.tintedglasscasing;
+
 import com.cyvack.create_crystal_clear.blocks.glass_casings.GlassCasing;
 import com.cyvack.create_crystal_clear.blocks.glass_casings.TintedGlassCasing;
 import com.cyvack.create_crystal_clear.blocks.glass_encased_cogwheel.GlassEncasedCogwheel;
 import com.cyvack.create_crystal_clear.blocks.glass_encased_shaft.GlassEncasedShaftBlock;
 import com.simibubi.create.foundation.block.connected.SimpleCTBehaviour;
 import com.tterrag.registrate.util.entry.BlockEntry;
-import net.minecraft.world.level.block.Block;
-
-import static com.cyvack.create_crystal_clear.data_gen.BlockBuilders.*;
 
 public class ModBlocks {
 	//Casings

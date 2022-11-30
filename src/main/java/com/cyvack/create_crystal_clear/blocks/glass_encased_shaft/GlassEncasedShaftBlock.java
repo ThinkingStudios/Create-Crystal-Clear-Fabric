@@ -1,7 +1,7 @@
 package com.cyvack.create_crystal_clear.blocks.glass_encased_shaft;
 
-import com.cyvack.create_crystal_clear.blocks.glass_casings.GlassCasing;
 import com.cyvack.create_crystal_clear.blocks.ModBlocks;
+import com.cyvack.create_crystal_clear.blocks.glass_casings.GlassCasing;
 import com.cyvack.create_crystal_clear.tile_entities.ModtileEntities;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.content.contraptions.base.KineticTileEntity;
@@ -10,6 +10,7 @@ import com.simibubi.create.content.schematics.ISpecialBlockItemRequirement;
 import com.simibubi.create.content.schematics.ItemRequirement;
 import com.simibubi.create.foundation.block.ITE;
 import com.tterrag.registrate.util.entry.BlockEntry;
+
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.core.BlockPos;
@@ -102,11 +103,12 @@ public class GlassEncasedShaftBlock extends AbstractEncasedShaftBlock implements
 		return ((pState.getBlock() instanceof GlassEncasedShaftBlock) && (pAdjacentBlockState.getBlock() instanceof GlassEncasedShaftBlock));
 	}
 
-	@SuppressWarnings("deprecation")
+	@Override
 	public float getShadeBrightness(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
 		return 1.0F;
 	}
 
+	@Override
 	public boolean propagatesSkylightDown(BlockState pState, BlockGetter pReader, BlockPos pPos) {
 		return true;
 	}

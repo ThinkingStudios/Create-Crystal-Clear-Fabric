@@ -1,7 +1,7 @@
 package com.cyvack.create_crystal_clear.blocks.glass_encased_cogwheel;
 
-import com.cyvack.create_crystal_clear.blocks.glass_casings.GlassCasing;
 import com.cyvack.create_crystal_clear.blocks.ModBlocks;
+import com.cyvack.create_crystal_clear.blocks.glass_casings.GlassCasing;
 import com.cyvack.create_crystal_clear.tile_entities.ModtileEntities;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.content.contraptions.base.IRotate;
@@ -18,6 +18,7 @@ import com.simibubi.create.content.schematics.ItemRequirement;
 import com.simibubi.create.foundation.block.ITE;
 import com.simibubi.create.foundation.utility.VoxelShaper;
 import com.tterrag.registrate.util.entry.BlockEntry;
+
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.core.BlockPos;
@@ -271,7 +272,6 @@ public class GlassEncasedCogwheel extends RotatedPillarKineticBlock implements I
 		return isLarge ? ModtileEntities.GLASS_ENCASED_LARGE_COG.get() : ModtileEntities.GLASS_ENCASED_COG.get();
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	@Environment(EnvType.CLIENT)
 	public boolean skipRendering(BlockState pState, BlockState pAdjacentBlockState, Direction side) {
