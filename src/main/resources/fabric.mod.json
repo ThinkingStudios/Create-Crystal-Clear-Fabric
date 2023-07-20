@@ -4,22 +4,22 @@
   "version": "${version}",
   "name": "Create: Crystal Clear",
   "description": "The ultimate Glass Casing Experience",
-  "authors": ["NovaStarter"],
-  "icon": "assets/create_crystal_clear/logo.png",
+  "authors": [
+    "ThinkingStudio", "TexTrue", "NovaStarter", "Yjn024"
+  ],
+  "icon": "logo.png",
   "license": "MIT",
   "environment": "*",
   "entrypoints": {
-    "main": ["com.cyvack.create_crystal_clear.Create_Crystal_Clear"]
+    "main": [
+      "com.cyvack.create_crystal_clear.CrystalClear"
+    ]
   },
-  "mixins": ["create_crystal_clear.mixins.json"],
   "depends": {
-    "fabricloader": ">=0.14.6",
+    "fabricloader": "*",
     "fabric": "*",
     "minecraft": "~1.19.2",
     "java": ">=17",
     "create": "*"
-  },
-  "suggests": {
-    "quilt_loader": "*"
   }
 }
