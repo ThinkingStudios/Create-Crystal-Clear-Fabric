@@ -1,24 +1,23 @@
 {
-  "fabric:load_conditions": [
-    {
-      "condition": "fabric:item_tags_populated",
-      "values": [
-        "c:steel_ingots"
-      ]
-    }
-  ],
   "type": "create:item_application",
   "ingredients": [
     {
-      "item": "create:framed_glass"
+      "item": "minecraft:glass"
     },
     {
-      "tag": "c:steel_ingots"
+      "item": "alloyed:steel_ingot"
     }
   ],
   "results": [
     {
       "item": "create_crystal_clear:steel_glass_casing"
+    }
+  ],
+
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "alloyed"
     }
   ]
 }
