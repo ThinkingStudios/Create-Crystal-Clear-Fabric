@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "create_crystal_clear",
+  "version": "${version}",
+  "name": "Create: Crystal Clear",
+  "description": "The ultimate Glass Casing Experience",
+  "authors": [
+    "ThinkingStudio", "TexTrue", "NovaStarter", "Yjn024"
+  ],
+  "icon": "logo.png",
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.cyvack.create_crystal_clear.CrystalClear"
+    ]
+  },
+  "depends": {
+    "fabricloader": "*",
+    "fabric": "*",
+    "minecraft": "1.18.x",
+    "java": ">=17",
+    "create": "*"
+  }
+}
