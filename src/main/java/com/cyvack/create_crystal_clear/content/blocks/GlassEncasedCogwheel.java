@@ -8,12 +8,10 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.FluidState;
 
 import java.util.function.Supplier;
 
@@ -34,11 +32,6 @@ public class GlassEncasedCogwheel extends EncasedCogwheelBlock implements Encase
     @Environment(EnvType.CLIENT)
     public boolean skipRendering(BlockState selfState, BlockState adjacentBlock, Direction side) {
         return adjacentBlock.getBlock() instanceof GlassEncasedCogwheel;
-    }
-
-    //@Override
-    public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndTintGetter world, BlockPos pos, FluidState fluidState) {
-        return true;
     }
 
     @Override

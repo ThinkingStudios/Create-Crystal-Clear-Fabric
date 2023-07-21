@@ -12,15 +12,15 @@ import net.minecraft.resources.ResourceLocation;
 public class CrystalClear implements ModInitializer {
 
     public static final String ID = "create_crystal_clear";
-    public static boolean isAlloyedLoaded = false;
+    //public static boolean isAlloyedLoaded = false;
     public static final NonNullSupplier<CreateRegistrate> REGISTRATE = NonNullSupplier.lazy(() -> CreateRegistrate.create(ID)
             .creativeModeTab(() -> CCTab.MAIN_GROUP, "Crystal Clear"));
 
     @Override
     public void onInitialize() {
-        if (FabricLoader.getInstance().isModLoaded("alloyed")) {
-            isAlloyedLoaded = true;
-        }
+        //if (FabricLoader.getInstance().isModLoaded("alloyed")) {
+        //    isAlloyedLoaded = true;
+        //}
         CCBlocks.register();
         CCBlockEntities.register();
         // compat
@@ -36,6 +36,4 @@ public class CrystalClear implements ModInitializer {
     public static ResourceLocation asResource(String path) {
         return new ResourceLocation(ID, path);
     }
-
-
 }
